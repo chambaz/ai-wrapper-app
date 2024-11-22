@@ -37,7 +37,7 @@ const Demo = () => {
 
   const getTestDbRows = React.useCallback(async () => {
     setDemoState(DemoState.LOADING_DB)
-    const res = await fetch('/api/test')
+    const res = await fetch('/api/db')
 
     if (!res.ok) {
       console.error('Failed to fetch test DB rows', res)
@@ -87,7 +87,7 @@ const Demo = () => {
         </div>
       )}
 
-      <div className="flex flex-col gap-4 mt-4 w-full">
+      <div className="flex flex-col gap-4 w-full">
         <div className="px-4">{completion}</div>
         <Button
           disabled={demoState === DemoState.LOADING_AI}
