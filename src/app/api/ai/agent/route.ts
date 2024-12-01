@@ -17,6 +17,15 @@ export async function POST(req: Request) {
         parameters: z.object({ expression: z.string() }),
         execute: async ({ expression }) => mathjs.evaluate(expression),
       }),
+      webScrape: tool({
+        description: 'A tool for web scraping.',
+        parameters: z.object({ url: z.string() }),
+        execute: async ({ url }) => {
+          const response = await fetch(url)
+          const text = await response.text()
+          return text
+        },
+      }),
     },
     maxSteps: 10,
     system:
