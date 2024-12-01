@@ -25,7 +25,7 @@ enum DemoState {
 
 const Demo = () => {
   const { completion, complete } = useCompletion({
-    api: '/api/completion',
+    api: '/api/ai/completion',
   })
   const [demoState, setDemoState] = React.useState<DemoState>(DemoState.DEFAULT)
   const [testDbRows, setTestDbRows] = React.useState<
